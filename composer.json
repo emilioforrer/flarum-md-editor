@@ -1,0 +1,33 @@
+{
+    "name": "emilioforrer/flarum-ext-markdown-editor",
+    "description": "Markdown toolbar for Flarum",
+    "type": "flarum-extension",
+    "keywords": ["flarum","smileys"],
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Emilio Forrer",
+            "email": "dev.emilio.forrer@gmail.com"
+        }
+    ],
+    "license": "MTI",
+    "require": {
+		"php": ">=5.4.0",
+        "flarum/core": "^0.1.0-beta.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "EmilioForrer\\MdEditor\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Markdown Editor",
+            "icon": {
+                "name": "pencil",
+                "backgroundColor": "#2e3436",
+                "color": "#eeeeec"
+            }
+        }
+    }
+}
