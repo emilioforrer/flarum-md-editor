@@ -3,7 +3,7 @@
     "description": "Markdown toolbar for Flarum",
     "type": "flarum-extension",
     "keywords": ["flarum","smileys"],
-    "version": "0.1.1",
+    "version": "0.1.2",
     "authors": [
         {
             "name": "Emilio Forrer",
@@ -29,5 +29,7 @@
                 "color": "#eeeeec"
             }
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
