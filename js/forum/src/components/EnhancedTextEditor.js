@@ -32,7 +32,7 @@ export default class EnhancedTextEditor extends TextEditor {
         var el =   $(element);
         var editor =  $(element).prev();
         var that = this;
-        var md = window.markdownit();
+        var md = window.markdownit({html: true});
 
         const handler = () => {
           this.onsubmit();
@@ -64,6 +64,7 @@ export default class EnhancedTextEditor extends TextEditor {
         }
 
         editor.trumbowyg('html', md.render(el.val()));
+        console.log(md.render(el.val()));
 
         el.bind('keydown', 'meta+return', handler);
         el.bind('keydown', 'ctrl+return', handler);
@@ -74,7 +75,28 @@ export default class EnhancedTextEditor extends TextEditor {
           //  $("#".el.attr("id")).val(editor.trumbowyg('html'));
           //  el.trigger("change");
           // console.log(toMarkdown);
-          var value = toMarkdown(editor.trumbowyg('html'));
+          var value = toMarkdown(editor.trumbowyg('html'), {
+            converters: [
+              {
+                filter: 'span',
+                replacement: function(content) {
+                  return '`' + content + '`';
+                }
+              },
+              {
+                filter: 'code',
+                replacement: function(content) {
+                  return '`' + content + '`';
+                }
+              },
+              {
+                filter: 'pre',
+                replacement: function(content) {
+                  return '```' + content + '```';
+                }
+              },
+            ]
+          });
            that.setValue(value);
         });
    }
