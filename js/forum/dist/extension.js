@@ -1,14 +1,16 @@
 'use strict';
 
-System.register('emilioforrer/mdeditor/components/EnhancedTextEditor', ['flarum/helpers/listItems', 'trumbowyg', 'flarum/components/TextEditor'], function (_export, _context) {
+System.register('emilioforrer/mdeditor/components/EnhancedTextEditor', ['flarum/helpers/listItems', 'trumbowyg', 'markdown-it', 'flarum/components/TextEditor'], function (_export, _context) {
     "use strict";
 
-    var listItems, trumbowyg, TextEditor, EnhancedTextEditor;
+    var listItems, trumbowyg, MarkdownIt, TextEditor, EnhancedTextEditor;
     return {
         setters: [function (_flarumHelpersListItems) {
             listItems = _flarumHelpersListItems.default;
         }, function (_trumbowyg) {
             trumbowyg = _trumbowyg.default;
+        }, function (_markdownIt) {
+            MarkdownIt = _markdownIt.default;
         }, function (_flarumComponentsTextEditor) {
             TextEditor = _flarumComponentsTextEditor.default;
         }],
@@ -53,6 +55,8 @@ System.register('emilioforrer/mdeditor/components/EnhancedTextEditor', ['flarum/
                         var el = $(element);
                         var editor = $(element).prev();
                         var that = this;
+                        var md = new MarkdownIt();
+
                         var handler = function handler() {
                             _this2.onsubmit();
                             m.redraw();
@@ -66,7 +70,7 @@ System.register('emilioforrer/mdeditor/components/EnhancedTextEditor', ['flarum/
                             });
                         }
 
-                        editor.trumbowyg('html', toMarkdown(el.val()));
+                        editor.trumbowyg('html', md.render(el.val()));
 
                         el.bind('keydown', 'meta+return', handler);
                         el.bind('keydown', 'ctrl+return', handler);

@@ -1,5 +1,6 @@
 import listItems from 'flarum/helpers/listItems';
 import trumbowyg from 'trumbowyg';
+import MarkdownIt from 'markdown-it';
 import TextEditor from 'flarum/components/TextEditor';
 
 export default class EnhancedTextEditor extends TextEditor {
@@ -31,6 +32,8 @@ export default class EnhancedTextEditor extends TextEditor {
         var el =   $(element);
         var editor =  $(element).prev();
         var that = this;
+        var md = new MarkdownIt();
+
         const handler = () => {
           this.onsubmit();
           m.redraw();
@@ -60,7 +63,7 @@ export default class EnhancedTextEditor extends TextEditor {
           });
         }
 
-        editor.trumbowyg('html', toMarkdown(el.val()));
+        editor.trumbowyg('html', md.render(el.val()));
 
         el.bind('keydown', 'meta+return', handler);
         el.bind('keydown', 'ctrl+return', handler);
