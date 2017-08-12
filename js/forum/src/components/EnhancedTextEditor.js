@@ -60,7 +60,7 @@ export default class EnhancedTextEditor extends TextEditor {
           });
         }
 
-        editor.trumbowyg('html', el.val());
+        editor.trumbowyg('html', toMarkdown(el.val()));
 
         el.bind('keydown', 'meta+return', handler);
         el.bind('keydown', 'ctrl+return', handler);
