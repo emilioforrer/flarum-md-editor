@@ -26,6 +26,7 @@ class AddClientAssets{
               __DIR__.'/../../js/forum/vendor/trumbowyg/plugins/insertaudio/trumbowyg.insertaudio.js',
               // __DIR__.'/../../js/forum/vendor/trumbowyg/plugins/cleanpaste/trumbowyg.cleanpaste.js',
               __DIR__.'/../../js/forum/vendor/to-markdown/to-markdown.js',
+              __DIR__.'/../../js/forum/vendor/markdown-it/markdown-it.js',
               __DIR__.'/../../js/forum/vendor/vendor/ui/icons.svg',
               __DIR__.'/../../less/forum/extension.less'
             ]);
