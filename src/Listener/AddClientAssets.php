@@ -21,6 +21,10 @@ class AddClientAssets{
             $app->addAssets([
               __DIR__.'/../../js/forum/dist/extension.js',
               __DIR__.'/../../js/forum/vendor/trumbowyg/trumbowyg.js',
+              __DIR__.'/../../js/forum/vendor/trumbowyg/plugins/preformatted/trumbowyg.preformatted.js',
+              __DIR__.'/../../js/forum/vendor/trumbowyg/plugins/noembed/trumbowyg.noembed.js',
+              __DIR__.'/../../js/forum/vendor/trumbowyg/plugins/insertaudio/trumbowyg.insertaudio.js',
+              // __DIR__.'/../../js/forum/vendor/trumbowyg/plugins/cleanpaste/trumbowyg.cleanpaste.js',
               __DIR__.'/../../js/forum/vendor/to-markdown/to-markdown.js',
               __DIR__.'/../../js/forum/vendor/vendor/ui/icons.svg',
               __DIR__.'/../../less/forum/extension.less'
