@@ -55,7 +55,7 @@ System.register('emilioforrer/mdeditor/components/EnhancedTextEditor', ['flarum/
                         var el = $(element);
                         var editor = $(element).prev();
                         var that = this;
-                        var md = new MarkdownIt();
+                        var md = window.markdownit();
 
                         var handler = function handler() {
                             _this2.onsubmit();

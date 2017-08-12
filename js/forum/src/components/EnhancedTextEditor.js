@@ -32,7 +32,7 @@ export default class EnhancedTextEditor extends TextEditor {
         var el =   $(element);
         var editor =  $(element).prev();
         var that = this;
-        var md = new MarkdownIt();
+        var md = window.markdownit();
 
         const handler = () => {
           this.onsubmit();
