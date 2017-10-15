@@ -19,20 +19,16 @@ class AddClientAssets{
     {
         if ($app->isForum()) {
             $app->addAssets([
+              __DIR__.'/../../js/forum/dist/vendor.js',
               __DIR__.'/../../js/forum/dist/extension.js',
-              __DIR__.'/../../js/forum/vendor/trumbowyg/trumbowyg.js',
-              __DIR__.'/../../js/forum/vendor/trumbowyg/plugins/preformatted/trumbowyg.preformatted.js',
-              __DIR__.'/../../js/forum/vendor/trumbowyg/plugins/noembed/trumbowyg.noembed.js',
-              __DIR__.'/../../js/forum/vendor/trumbowyg/plugins/insertaudio/trumbowyg.insertaudio.js',
-              // __DIR__.'/../../js/forum/vendor/trumbowyg/plugins/cleanpaste/trumbowyg.cleanpaste.js',
-              __DIR__.'/../../js/forum/vendor/to-markdown/to-markdown.js',
-              __DIR__.'/../../js/forum/vendor/markdown-it/markdown-it.js',
-              __DIR__.'/../../js/forum/vendor/vendor/ui/icons.svg',
-              __DIR__.'/../../less/forum/extension.less'
+              __DIR__.'/../../less/forum/extension.less',
             ]);
             $app->addBootstrapper('emilioforrer/mdeditor/main');
         }
     }
+
+
+
     public function addAdminAssets(ConfigureWebApp $event)
     {
         // if ($event->isAdmin()) {

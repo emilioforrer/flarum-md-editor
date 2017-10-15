@@ -1,6 +1,6 @@
 'use strict';
 
-System.register('emilioforrer/mdeditor/components/EnhancedTextEditor', ['flarum/helpers/listItems', 'trumbowyg', 'markdown-it', 'flarum/components/TextEditor'], function (_export, _context) {
+System.register('emilioforrer/mdeditor/components/EnhancedTextEditor', ['flarum/helpers/listItems', 'trumbowyg', 'emilioforrer/mdeditor/vendor/markdown-it', 'flarum/components/TextEditor'], function (_export, _context) {
   "use strict";
 
   var listItems, trumbowyg, MarkdownIt, TextEditor, EnhancedTextEditor;
@@ -9,8 +9,8 @@ System.register('emilioforrer/mdeditor/components/EnhancedTextEditor', ['flarum/
       listItems = _flarumHelpersListItems.default;
     }, function (_trumbowyg) {
       trumbowyg = _trumbowyg.default;
-    }, function (_markdownIt) {
-      MarkdownIt = _markdownIt.default;
+    }, function (_emilioforrerMdeditorVendorMarkdownIt) {
+      MarkdownIt = _emilioforrerMdeditorVendorMarkdownIt.default;
     }, function (_flarumComponentsTextEditor) {
       TextEditor = _flarumComponentsTextEditor.default;
     }],
@@ -65,13 +65,13 @@ System.register('emilioforrer/mdeditor/components/EnhancedTextEditor', ['flarum/
             if (editor.data().trumbowyg === undefined) {
               editor.trumbowyg({
                 // You can only add one of foreColor/backColor
+                svgPath: "/assets/extensions/emilioforrer-markdown-editor/images/icons.svg",
                 btnsAdd: ['preformatted', 'noembed', 'insertAudio'],
                 btns: [['viewHTML'], ['undo', 'redo'], ['formatting'], 'btnGrp-semantic', ['superscript', 'subscript'], ['link'], ['insertImage'], ['noembed'], ['insertAudio'], 'btnGrp-justify', 'btnGrp-lists', ['horizontalRule'], ['removeformat'], ['preformatted'], ['fullscreen']]
               });
             }
 
             editor.trumbowyg('html', md.render(el.val()));
-            console.log(md.render(el.val()));
 
             el.bind('keydown', 'meta+return', handler);
             el.bind('keydown', 'ctrl+return', handler);

@@ -1,6 +1,6 @@
 import listItems from 'flarum/helpers/listItems';
 import trumbowyg from 'trumbowyg';
-import MarkdownIt from 'markdown-it';
+import MarkdownIt from 'emilioforrer/mdeditor/vendor/markdown-it';
 import TextEditor from 'flarum/components/TextEditor';
 
 export default class EnhancedTextEditor extends TextEditor {
@@ -42,6 +42,7 @@ export default class EnhancedTextEditor extends TextEditor {
         if (editor.data().trumbowyg === undefined) {
           editor.trumbowyg({
               // You can only add one of foreColor/backColor
+              svgPath:  "/assets/extensions/emilioforrer-markdown-editor/images/icons.svg",
               btnsAdd: ['preformatted', 'noembed','insertAudio'],
               btns: [
                   ['viewHTML'],
@@ -64,7 +65,6 @@ export default class EnhancedTextEditor extends TextEditor {
         }
 
         editor.trumbowyg('html', md.render(el.val()));
-        console.log(md.render(el.val()));
 
         el.bind('keydown', 'meta+return', handler);
         el.bind('keydown', 'ctrl+return', handler);

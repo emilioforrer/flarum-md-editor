@@ -4,8 +4,12 @@
     "flarum-gulp": "^0.2.0",
     "gulp": "^3.9.1"
   },
+  "scripts": {
+    "build": "gulp;gulp --gulpfile Gulpfile-js-vendor.js; gulp --gulpfile Gulpfile-css-vendor.js"
+  },
   "dependencies": {
     "markdown-it": "^8.3.2",
+    "to-markdown": "^3.1.0",
     "trumbowyg": "^2.6.0"
   }
 }
