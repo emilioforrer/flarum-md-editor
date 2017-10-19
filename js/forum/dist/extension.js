@@ -63,12 +63,7 @@ System.register('emilioforrer/mdeditor/components/EnhancedTextEditor', ['flarum/
             };
 
             if (editor.data().trumbowyg === undefined) {
-              editor.trumbowyg({
-                // You can only add one of foreColor/backColor
-                svgPath: "/assets/extensions/emilioforrer-markdown-editor/images/icons.svg",
-                btnsAdd: ['preformatted', 'noembed', 'insertAudio'],
-                btns: [['viewHTML'], ['undo', 'redo'], ['formatting'], 'btnGrp-semantic', ['superscript', 'subscript'], ['link'], ['insertImage'], ['noembed'], ['insertAudio'], 'btnGrp-justify', 'btnGrp-lists', ['horizontalRule'], ['removeformat'], ['preformatted'], ['fullscreen']]
-              });
+              editor.trumbowyg(app.editor.defaults);
             }
 
             editor.trumbowyg('html', md.render(el.val()));
@@ -137,6 +132,15 @@ System.register('emilioforrer/mdeditor/main', ['flarum/app', 'flarum/extend', 'f
             EnhancedTextEditor = _componentsEnhancedTextEditor.default;
         }],
         execute: function () {
+
+            app.editor = {
+                defaults: {
+                    // You can only add one of foreColor/backColor
+                    svgPath: "/assets/extensions/emilioforrer-markdown-editor/images/icons.svg",
+                    btnsAdd: ['preformatted', 'noembed', 'insertAudio'],
+                    btns: [['viewHTML'], ['undo', 'redo'], ['formatting'], 'btnGrp-semantic', ['superscript', 'subscript'], ['link'], ['insertImage'], ['noembed'], ['insertAudio'], 'btnGrp-justify', 'btnGrp-lists', ['horizontalRule'], ['removeformat'], ['preformatted'], ['fullscreen']]
+                }
+            };
 
             app.initializers.add('emilioforrer-mdeditor', function () {
 

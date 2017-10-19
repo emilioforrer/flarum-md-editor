@@ -40,28 +40,7 @@ export default class EnhancedTextEditor extends TextEditor {
         };
 
         if (editor.data().trumbowyg === undefined) {
-          editor.trumbowyg({
-              // You can only add one of foreColor/backColor
-              svgPath:  "/assets/extensions/emilioforrer-markdown-editor/images/icons.svg",
-              btnsAdd: ['preformatted', 'noembed','insertAudio'],
-              btns: [
-                  ['viewHTML'],
-                  ['undo', 'redo'],
-                  ['formatting'],
-                  'btnGrp-semantic',
-                  ['superscript', 'subscript'],
-                  ['link'],
-                  ['insertImage'],
-                  ['noembed'],
-                  ['insertAudio'],
-                  'btnGrp-justify',
-                  'btnGrp-lists',
-                  ['horizontalRule'],
-                  ['removeformat'],
-                  ['preformatted'],
-                  ['fullscreen']
-              ]
-          });
+          editor.trumbowyg(app.editor.defaults);
         }
 
         editor.trumbowyg('html', md.render(el.val()));
